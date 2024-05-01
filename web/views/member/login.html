@@ -16,7 +16,7 @@
                 function () {
                     var username = $("#username").val();
                     var userPattern = /^\w{6,10}$/;
-                    if(!userPattern.test(username)){
+                    if(!userPattern.test(username)) {
                         $("span[class='errorMsg']").text("用户名输入格式错误, 需要6-10个字符...");
                         return false;
                     }
@@ -32,7 +32,6 @@
                     if(password != repwd){
                         $("span[class='errorMsg']").text("两次密码不一样...");
                         return false;
-
                     }
 
                     var email = $("#email").val();
