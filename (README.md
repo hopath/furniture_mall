@@ -7,4 +7,4 @@
 软件架构说明
 
 ### 功能介绍
-#### [前端会员注册验证](https://gitee.com/eternal-but-heavenly-yang/furniture_mall/tree/master/web/views/member)
+#### 1.[前端会员注册验证](https://gitee.com/eternal-but-heavenly-yang/furniture_mall/tree/master/web/views/member)
