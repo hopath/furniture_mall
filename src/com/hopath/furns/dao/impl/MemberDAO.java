@@ -22,5 +22,6 @@ public class MemberDAO extends BasicDAO<Member> implements com.hopath.furns.dao.
         String sql = "insert into member values(?, ?, ?, ?)";
         int i = update(sql, null, member.getUsername(), member.getPassword(), member.getEmail());
         return i;
+
     }
 }
