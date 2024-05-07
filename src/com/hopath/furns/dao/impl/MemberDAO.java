@@ -13,13 +13,19 @@ import java.sql.SQLException;
 public class MemberDAO extends BasicDAO<Member> implements com.hopath.furns.dao.MemberDAO {
     @Override
     public Member queryMemberByUsername(String username) throws SQLException {
-        String sql = "select* from member where username = ?";
+        String sql = "select* from member where username=?";
         return querySingle(sql, Member.class, username);
     }
 
     @Override
+    public Member queryMemberByUsernameAndPassword(String username, String password) throws SQLException {
+        String sql = "select* from member where username=? and password=md5(?)";
+        return querySingle(sql, Member.class, username, password);
+    }
+
+    @Override
     public int saveMember(Member member) throws SQLException {
-        String sql = "insert into member values(?, ?, ?, ?)";
+        String sql = "insert into member values(?, ?, md5(?), ?)";
         int i = update(sql, null, member.getUsername(), member.getPassword(), member.getEmail());
         return i;
 

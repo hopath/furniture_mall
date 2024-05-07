@@ -12,11 +12,19 @@ import java.sql.SQLException;
  */
 public class MemberDAOTest {
     @Test
-    public void getMemberByUsernameTest() throws SQLException {
+    public void queryMemberByUsernameTest() throws SQLException {
         MemberDAO memberDAO = new MemberDAO();
-        Member member = memberDAO.queryMemberByUsername("admin");
+        Member member = memberDAO.queryMemberByUsername("zzw");
         System.out.println(member);
     }
+
+    @Test
+    public void queryMemberByUsernameAndPasswordTest() throws SQLException {
+        MemberDAO memberDAO = new MemberDAO();
+        Member member = memberDAO.queryMemberByUsernameAndPassword("zzw", "123456");
+        System.out.println(member);
+    }
+
     @Test
     public void saveMemberTest() throws SQLException {
         Member member = new Member("zzw", "123456", "hopath@outlook.com");

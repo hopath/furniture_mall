@@ -15,7 +15,7 @@
             $("#sub-btn").click(
                 function () {
                     var username = $("#username").val();
-                    var userPattern = /^\w{6,10}$/;
+                    var userPattern = /^\w{1,10}$/;
                     if(!userPattern.test(username)) {
                         $("span[class='errorMsg']").text("用户名输入格式错误, 需要6-10个字符...");
                         return false;
@@ -123,7 +123,7 @@
                                 <div class="login-register-form">
                                     <span class="errorMsg"
                                           style="float: right; font-weight: bold; font-size: 15pt; margin-left: 10px;"></span>
-                                    <form action="#" method="post">
+                                    <form action="/furniture_mall/LoginServlet" method="post">
                                         <input type="text" id="username" name="user-name" placeholder="Username"/>
                                         <input type="password" id="password" name="user-password" placeholder="输入密码"/>
                                         <input type="password" id="repwd" name="user-password" placeholder="确认密码"/>
