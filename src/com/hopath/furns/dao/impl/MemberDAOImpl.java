@@ -1,8 +1,8 @@
 package com.hopath.furns.dao.impl;
 
 import com.hopath.furns.dao.BasicDAO;
+import com.hopath.furns.dao.MemberDAO;
 import com.hopath.furns.entity.Member;
-import com.sun.org.apache.xerces.internal.xni.parser.XMLErrorHandler;
 
 import java.sql.SQLException;
 
@@ -10,7 +10,7 @@ import java.sql.SQLException;
  * @author 张志伟
  * @version 1.0
  */
-public class MemberDAO extends BasicDAO<Member> implements com.hopath.furns.dao.MemberDAO {
+public class MemberDAOImpl extends BasicDAO<Member> implements MemberDAO {
     @Override
     public Member queryMemberByUsername(String username) throws SQLException {
         String sql = "select* from member where username=?";

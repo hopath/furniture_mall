@@ -1,7 +1,5 @@
 package com.hopath.furns.test;
 
-import com.hopath.furns.dao.impl.MemberDAO;
-import com.hopath.furns.entity.Member;
 import com.hopath.furns.utils.JBDCUtilsByDruid;
 import org.junit.jupiter.api.Test;
 
