@@ -14,29 +14,29 @@ import java.sql.SQLException;
  * @author 张志伟
  * @version 1.0
  */
-public class RegisterServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
     MemberServiceImpl memberService = new MemberServiceImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("user-name");
-        String password = request.getParameter("user-password");
-        String email = request.getParameter("user-email");
+        String passWd = request.getParameter("user-password");
+
         try {
             response.setContentType("text/html;charset=utf-8");
             if(!memberService.isExistUsername(username)){
-
-                Member member = new Member(username, password, email);
-                if(memberService.registerMember(member)){
-                    request.getRequestDispatcher("/views/member/register_ok.html").
+                request.setAttribute("key", "用户名不存在...");
+                request.getRequestDispatcher("views/member/login.jsp").
+                        forward(request, response);
+            }else{
+                Member member = new Member(username, passWd);
+                if(memberService.login(member) == null){
+                    request.setAttribute("key", "密码错误...");
+                    request.getRequestDispatcher("views/member/login.jsp").
                             forward(request, response);
-                }else{
-                    request.getRequestDispatcher("/views/member/register_fail.html").
+                }else {
+                    request.getRequestDispatcher("/views/member/login_ok.html").
                             forward(request, response);
                 }
-            }else {
-                //用户存在直接返回登录界面
-                request.getRequestDispatcher("/views/member/login.jsp").
-                        forward(request, response);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();

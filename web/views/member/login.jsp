@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -103,7 +103,11 @@
                         <div id="lg1" class="tab-pane active">
                             <div class="login-form-container">
                                 <div class="login-register-form">
-                                    <form action="#" method="post">
+                                    <span class="errorMsg"
+                                          style="float: right; font-weight: bold; font-size: 15pt; margin-left: 10px;">
+                                        ${key}
+                                    </span>
+                                    <form action="/furniture_mall/LoginServlet" method="post">
                                         <input type="text" name="user-name" placeholder="Username"/>
                                         <input type="password" name="user-password" placeholder="Password"/>
                                         <div class="button-box">
@@ -182,7 +186,7 @@
                                         <li class="li"><a class="single-link" href="my-account.html">我的账号</a>
                                         </li>
                                         <li class="li"><a class="single-link" href="cart.html">我的购物车</a></li>
-                                        <li class="li"><a class="single-link" href="login.html">登录</a></li>
+                                        <li class="li"><a class="single-link" href="login.jsp">登录</a></li>
                                         <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>
                                         <li class="li"><a class="single-link" href="checkout.html">结账</a></li>
                                     </ul>
