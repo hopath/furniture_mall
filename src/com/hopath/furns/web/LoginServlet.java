@@ -23,6 +23,7 @@ public class LoginServlet extends HttpServlet {
 
         try {
             response.setContentType("text/html;charset=utf-8");
+            request.setAttribute("username", username);
             if(!memberService.isExistUsername(username)){
                 request.setAttribute("key", "用户名不存在...");
                 request.getRequestDispatcher("views/member/login.jsp").

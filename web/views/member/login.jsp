@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>韩顺平教育-家居网购</title>
+    <base href="<%=request.getContextPath() + "/"%>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="../../assets/css/vendor/vendor.min.css"/>
-    <link rel="stylesheet" href="../../assets/css/plugins/plugins.min.css"/>
-    <link rel="stylesheet" href="../../assets/css/style.min.css"/>
-    <script type="text/javascript" src="../../script/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
+    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
+    <link rel="stylesheet" href="assets/css/style.min.css"/>
+    <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
         // 前端会员注册信息验证
         $(function () {
@@ -59,7 +60,7 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="../../index.html"><img src="../../assets/images/logo/logo.png" alt="Site Logo"/></a>
+                        <a href="index.html"><img src="assets/images/logo/logo.png" alt="Site Logo"/></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
@@ -74,7 +75,7 @@
                 <!-- Header Logo Start -->
                 <div class="col-auto align-self-center">
                     <div class="header-logo">
-                        <a href="index.html"><img width="280px" src="../../assets/images/logo/logo.png" alt="Site Logo" /></a>
+                        <a href="index.html"><img width="280px" src="assets/images/logo/logo.png" alt="Site Logo" /></a>
                     </div>
                 </div>
                 <!-- Header Logo End -->
@@ -108,8 +109,9 @@
                                           style="float: right; font-weight: bold; font-size: 15pt; margin-left: 10px;">
                                         ${key}
                                     </span>
-                                    <form action="/furniture_mall/LoginServlet" method="post">
-                                        <input type="text" name="user-name" placeholder="Username"/>
+                                    <form action="/furniture_mall/MemberServlet" method="post">
+                                        <input type="hidden" name="action" value="login">
+                                        <input type="text" name="user-name" value="${requestScope.username}" placeholder="Username"/>
                                         <input type="password" name="user-password" placeholder="Password"/>
                                         <div class="button-box">
                                             <div class="login-toggle-btn">
@@ -128,7 +130,8 @@
                                 <div class="login-register-form">
                                     <span class="errorMsg"
                                           style="float: right; font-weight: bold; font-size: 15pt; margin-left: 10px;"></span>
-                                    <form action="/furniture_mall/RegisterServlet" method="post">
+                                    <form action="/furniture_mall/MemberServlet" method="post">
+                                        <input type="hidden" name="action" value="register">
                                         <input type="text" id="username" name="user-name" placeholder="Username"/>
                                         <input type="password" id="password" name="user-password" placeholder="输入密码"/>
                                         <input type="password" id="repwd" name="user-password" placeholder="确认密码"/>
@@ -221,9 +224,9 @@
     </div>
 </div>
 <!-- Footer Area End -->
-<script src="../../assets/js/vendor/vendor.min.js"></script>
-<script src="../../assets/js/plugins/plugins.min.js"></script>
+<script src="assets/js/vendor/vendor.min.js"></script>
+<script src="assets/js/plugins/plugins.min.js"></script>
 <!-- Main Js -->
-<script src="../../assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
