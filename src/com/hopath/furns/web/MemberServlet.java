@@ -17,6 +17,7 @@ import java.sql.SQLException;
 public class MemberServlet extends BasicServlet{
     MemberServiceImpl memberService = new MemberServiceImpl();
 
+
 //    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        String action = request.getParameter("action");
 //        if("register".equals(action)){
