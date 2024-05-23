@@ -1,9 +1,12 @@
 package com.hopath.furns.web;
 
+import com.hopath.furns.entity.Admin;
 import com.hopath.furns.entity.Member;
-import com.hopath.furns.service.impl.MemberServiceImpl;
+import com.hopath.furns.service.AdminService;
+import com.hopath.furns.service.impl.AdminServiceImpl;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -13,22 +16,12 @@ import java.sql.SQLException;
  * @author 张志伟
  * @version 1.0
  */
-public class MemberServlet extends BasicServlet{
-    MemberServiceImpl memberService = new MemberServiceImpl();
-
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String action = request.getParameter("action");
-//        if("register".equals(action)){
-//            register(request, response);
-//        }else if("login".equals(action)){
-//            login(request, response);
-//        }
-//    }
+public class AdminServlet extends BasicServlet {
+    AdminServiceImpl adminService = new AdminServiceImpl();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
-
 
     /**
      * 用户登录
@@ -43,15 +36,15 @@ public class MemberServlet extends BasicServlet{
         try {
             response.setContentType("text/html;charset=utf-8");
             request.setAttribute("username", username);
-            if(!memberService.isExistUsername(username)){
+            if(!adminService.isExistUsername(username)){
                 request.setAttribute("key", "用户名不存在...");
-                request.getRequestDispatcher("views/member/login.jsp").
+                request.getRequestDispatcher("views/admin/login.jsp").
                         forward(request, response);
             }else{
-                Member member = new Member(username, passWd);
-                if(memberService.login(member) == null){
+                Admin admin = new Admin(username, passWd);
+                if(adminService.login(admin) == null){
                     request.setAttribute("key", "密码错误...");
-                    request.getRequestDispatcher("views/member/login.jsp").
+                    request.getRequestDispatcher("views/admin/login.jsp").
                             forward(request, response);
                 }else {
                     request.getRequestDispatcher("/views/member/login_ok.html").
@@ -76,10 +69,10 @@ public class MemberServlet extends BasicServlet{
         String email = request.getParameter("user-email");
         try {
             response.setContentType("text/html;charset=utf-8");
-            if(!memberService.isExistUsername(username)){
+            if(!adminService.isExistUsername(username)){
 
-                Member member = new Member(username, password, email);
-                if(memberService.registerMember(member)){
+                Admin admin = new Admin(username, password);
+                if(adminService.registerMember(admin)){
                     request.getRequestDispatcher("/views/member/register_ok.html").
                             forward(request, response);
                 }else{
@@ -95,5 +88,4 @@ public class MemberServlet extends BasicServlet{
             throwables.printStackTrace();
         }
     }
-
 }

@@ -15,6 +15,14 @@
         <servlet-name>MemberServlet</servlet-name>
         <servlet-class>com.hopath.furns.web.MemberServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>com.hopath.furns.web.AdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/AdminServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MemberServlet</servlet-name>
         <url-pattern>/MemberServlet</url-pattern>

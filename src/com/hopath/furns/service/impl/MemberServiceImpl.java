@@ -1,6 +1,5 @@
 package com.hopath.furns.service.impl;
 
-import com.hopath.furns.dao.MemberDAO;
 import com.hopath.furns.dao.impl.MemberDAOImpl;
 import com.hopath.furns.entity.Member;
 import com.hopath.furns.service.MemberService;

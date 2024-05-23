@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>韩顺平教育-家居网购</title>
-    login.jsp
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
@@ -33,13 +32,6 @@
                     var repwd = $("#repwd").val();
                     if(password != repwd){
                         $("span[class='errorMsg']").text("两次密码不一样...");
-                        return false;
-                    }
-
-                    var email = $("#email").val();
-                    var emailPattern = /^[\w-.]+@([a-zA-Z]+\.)+[a-zA-z]+$/;
-                    if(!emailPattern.test(email)){
-                        $("span[class='errorMsg']").text("邮件输入格式错误");
                         return false;
                     }
                 }
@@ -95,10 +87,10 @@
                 <div class="login-register-wrapper">
                     <div class="login-register-tab-list nav">
                         <a class="active" data-bs-toggle="tab" href="#lg1">
-                            <h4>会员登录</h4>
+                            <h4>管理员登录</h4>
                         </a>
                         <a data-bs-toggle="tab" href="#lg2">
-                            <h4>会员注册</h4>
+                            <h4>管理员注册</h4>
                         </a>
                     </div>
                     <div class="tab-content">
@@ -109,7 +101,7 @@
                                           style="float: right; font-weight: bold; font-size: 15pt; margin-left: 10px;">
                                         ${key}
                                     </span>
-                                    <form action="/furniture_mall/MemberServlet" method="post">
+                                    <form action="/furniture_mall/AdminServlet" method="post">
                                         <input type="hidden" name="action" value="login">
                                         <input type="text" name="user-name" value="${requestScope.username}" placeholder="Username"/>
                                         <input type="password" name="user-password" placeholder="Password"/>
@@ -130,16 +122,15 @@
                                 <div class="login-register-form">
                                     <span class="errorMsg"
                                           style="float: right; font-weight: bold; font-size: 15pt; margin-left: 10px;"></span>
-                                    <form action="/furniture_mall/MemberServlet" method="post">
+                                    <form action="/furniture_mall/AdminServlet" method="post">
                                         <input type="hidden" name="action" value="register">
                                         <input type="text" id="username" name="user-name" placeholder="Username"/>
                                         <input type="password" id="password" name="user-password" placeholder="输入密码"/>
                                         <input type="password" id="repwd" name="user-password" placeholder="确认密码"/>
-                                        <input name="user-email" id="email" placeholder="电子邮件" type="email"/>
                                         <input type="text" id="code" name="user-name" style="width: 50%" id="code"
-                                               placeholder="验证码"/>　　<img alt="" src="../../assets/images/code/code.bmp">
+                                               placeholder="验证码"/>　　<img alt="" src="assets/images/code/code.bmp">
                                         <div class="button-box">
-                                            <button type="submit" id="sub-btn"><span>会员注册</span></button>
+                                            <button type="submit" id="sub-btn"><span>管理员注册</span></button>
                                         </div>
                                     </form>
                                 </div>
