@@ -87,5 +87,6 @@ public class AdminServlet extends BasicServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
     }
 }
