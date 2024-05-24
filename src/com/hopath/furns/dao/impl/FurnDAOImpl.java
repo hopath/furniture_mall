@@ -28,4 +28,5 @@ public class FurnDAOImpl extends BasicDAO<Furn> implements FurnDAO {
     public Furn selectByName(String name) {
         return null;
     }
+
 }
