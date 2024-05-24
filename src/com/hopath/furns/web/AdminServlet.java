@@ -81,7 +81,7 @@ public class AdminServlet extends BasicServlet {
                 }
             }else {
                 //用户存在直接返回登录界面
-                request.getRequestDispatcher("/views/member/login.jsp").
+                request.getRequestDispatcher("/views/admin/login.jsp").
                         forward(request, response);
             }
         } catch (SQLException throwables) {
