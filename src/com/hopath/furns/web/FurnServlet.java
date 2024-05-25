@@ -35,6 +35,7 @@ public class FurnServlet extends BasicServlet {
             System.out.println("添加成功...");
         }else{
             System.out.println("用户名已存在...");
+
         }
     }
 
