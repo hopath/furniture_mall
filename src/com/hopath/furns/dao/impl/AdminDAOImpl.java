@@ -25,9 +25,7 @@ public class AdminDAOImpl extends BasicDAO<Admin> implements AdminDAO {
 
     @Override
     public int saveMember(Admin admin) throws SQLException {
-        String sql = "add into admin values(?, ?, md5(?))";
-        int i = update(sql, null, admin.getUsername(), admin.getPassword());
-        return i;
-
+        String sql = "insert into admin values(?, ?, md5(?))";
+        return update(sql, null, admin.getUsername(), admin.getPassword());
     }
 }

@@ -25,9 +25,7 @@ public class MemberDAOImpl extends BasicDAO<Member> implements MemberDAO {
 
     @Override
     public int saveMember(Member member) throws SQLException {
-        String sql = "add into member values(?, ?, md5(?), ?)";
-        int i = update(sql, null, member.getUsername(), member.getPassword(), member.getEmail());
-        return i;
-
+        String sql = "insert into member values(?, ?, md5(?), ?)";
+        return update(sql, null, member.getUsername(), member.getPassword(), member.getEmail());
     }
 }

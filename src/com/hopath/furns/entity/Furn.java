@@ -10,14 +10,14 @@ public class Furn {
     private int id;
     private String name;
     private String maker;
-    private double price;
-    private int sales;
-    private int stock;
+    private String price;
+    private String sales;
+    private String stock;
 
     public Furn(){
 
     }
-    public Furn(int id, String name, String maker, double price, int sales, int stock) {
+    public Furn(int id, String name, String maker, String price, String sales, String stock) {
         this.id = id;
         this.name = name;
         this.maker = maker;
@@ -26,7 +26,7 @@ public class Furn {
         this.stock = stock;
     }
 
-    public Furn(String name, String maker, double price, int sales, int stock) {
+    public Furn(String name, String maker, String price, String sales, String stock) {
         this.name = name;
         this.maker = maker;
         this.price = price;
@@ -58,27 +58,27 @@ public class Furn {
         this.maker = maker;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public int getSales() {
+    public String getSales() {
         return sales;
     }
 
-    public void setSales(int sales) {
+    public void setSales(String sales) {
         this.sales = sales;
     }
 
-    public int getStock() {
+    public String getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(String stock) {
         this.stock = stock;
     }
 }
