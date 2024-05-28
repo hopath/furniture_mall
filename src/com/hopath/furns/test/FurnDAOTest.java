@@ -29,5 +29,6 @@ public class FurnDAOTest {
         for (Furn furn : all) {
             System.out.println(furn);
         }
+
     }
 }
