@@ -13,11 +13,11 @@ public interface FurnDAO {
 
     public int add(Furn furn) throws SQLException;
 
-    public int delete(Furn furn);
+    public int delete(Furn furn) throws SQLException;
 
-    public int update(Furn furn);
+    public int update(Furn furn, String name) throws SQLException;
 
     public Furn selectByName(String name) throws SQLException;
 
-    public List<Furn> getAll();
+    public List<Furn> getAll() throws SQLException;
 }

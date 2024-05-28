@@ -1,9 +1,8 @@
 package com.hopath.furns.service.impl;
 
-import com.hopath.furns.dao.FurnDAO;
 import com.hopath.furns.dao.impl.FurnDAOImpl;
 import com.hopath.furns.entity.Furn;
-import com.hopath.furns.service.FurnServlet;
+import com.hopath.furns.service.FurnService;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
  * @author 张志伟
  * @version 1.0
  */
-public class FurnServletImpl implements FurnServlet {
+public class FurnServiceImpl implements FurnService {
     FurnDAOImpl furnDAO = new FurnDAOImpl();
 
     @Override
@@ -21,13 +20,13 @@ public class FurnServletImpl implements FurnServlet {
     }
 
     @Override
-    public boolean deleteFurn(Furn furn) {
-        return false;
+    public boolean deleteFurn(Furn furn) throws SQLException {
+        return furnDAO.delete(furn) != 0;
     }
 
     @Override
-    public boolean updateFurn(Furn furn) {
-        return false;
+    public boolean updateFurn(Furn furn, String name) throws SQLException {
+        return furnDAO.update(furn, name) != 0;
     }
 
     @Override
@@ -36,7 +35,7 @@ public class FurnServletImpl implements FurnServlet {
     }
 
     @Override
-    public List<Furn> getAllFurn() {
-        return null;
+    public List<Furn> getAllFurn() throws SQLException {
+        return furnDAO.getAll();
     }
 }

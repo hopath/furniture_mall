@@ -1,37 +1,76 @@
 package com.hopath.furns.entity;
 
-import sun.applet.AppletResourceLoader;
+
+import java.math.BigDecimal;
 
 /**
  * @author 张志伟
  * @version 1.0
  */
 public class Furn {
-    private int id;
+    private Integer id;
     private String name;
     private String maker;
-    private String price;
-    private String sales;
-    private String stock;
+    private BigDecimal price;
+    private Integer sales;
+    private Integer stock;
+    private String imgPath;
 
     public Furn(){
 
     }
-    public Furn(int id, String name, String maker, String price, String sales, String stock) {
+    public Furn(int id, String name, String maker, BigDecimal price, Integer sales, Integer stock, String imgPath) {
         this.id = id;
         this.name = name;
         this.maker = maker;
         this.price = price;
         this.sales = sales;
         this.stock = stock;
+        this.imgPath = imgPath;
     }
 
-    public Furn(String name, String maker, String price, String sales, String stock) {
+    public Furn(String name, String maker, BigDecimal price, Integer sales, Integer stock, String imgPath) {
         this.name = name;
         this.maker = maker;
         this.price = price;
         this.sales = sales;
         this.stock = stock;
+        this.imgPath = imgPath;
+    }
+
+    public Furn(String name, String maker, BigDecimal price, Integer sales, Integer stock) {
+        this.name = name;
+        this.maker = maker;
+        this.price = price;
+        this.sales = sales;
+        this.stock = stock;
+        this.imgPath = imgPath;
+    }
+
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
+    @Override
+    public String toString() {
+        return "Furn{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", maker='" + maker + '\'' +
+                ", price=" + price +
+                ", sales=" + sales +
+                ", stock=" + stock +
+                ", imgPath='" + imgPath + '\'' +
+                '}';
     }
 
     public int getId() {
@@ -58,27 +97,27 @@ public class Furn {
         this.maker = maker;
     }
 
-    public String getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
-    public String getSales() {
+    public Integer getSales() {
         return sales;
     }
 
-    public void setSales(String sales) {
+    public void setSales(Integer sales) {
         this.sales = sales;
     }
 
-    public String getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public void setStock(String stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 }
