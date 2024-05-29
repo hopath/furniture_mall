@@ -48,17 +48,7 @@ public class Furn {
     }
 
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
-    public String getImgPath() {
-        return imgPath;
-    }
-
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
-    }
 
     @Override
     public String toString() {
@@ -73,11 +63,11 @@ public class Furn {
                 '}';
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -119,5 +109,13 @@ public class Furn {
 
     public void setStock(Integer stock) {
         this.stock = stock;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
 }

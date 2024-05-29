@@ -35,7 +35,7 @@ public class FurnDAOImpl extends BasicDAO<Furn> implements FurnDAO {
 
     @Override
     public Furn selectByName(String name) throws SQLException {
-        String sql = "select* from furn where name = ?";
+        String sql = "select id, name, maker, price, sales, stock, img_path ImgPath from furn where name = ?";
         return querySingle(sql, Furn.class, name);
     }
 
@@ -46,7 +46,7 @@ public class FurnDAOImpl extends BasicDAO<Furn> implements FurnDAO {
      */
     @Override
     public List<Furn> getAll() throws SQLException {
-        String sql = "select * from furn";
+        String sql = "select id, name, maker, price, sales, stock, img_path ImgPath from furn";
         return queryMulti(sql, Furn.class);
     }
 }
