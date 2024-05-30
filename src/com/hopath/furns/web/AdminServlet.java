@@ -19,9 +19,9 @@ import java.sql.SQLException;
 public class AdminServlet extends BasicServlet {
     AdminServiceImpl adminService = new AdminServiceImpl();
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
-    }
+//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        doPost(request, response);
+//    }
 
     /**
      * 用户登录

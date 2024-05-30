@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @author 张志伟
@@ -15,10 +16,6 @@ import java.sql.SQLException;
  */
 public class FurnServlet extends BasicServlet {
     FurnServiceImpl furnService = new FurnServiceImpl();
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
-    }
 
     public void addFurn(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         String name = request.getParameter("name");
@@ -54,7 +51,11 @@ public class FurnServlet extends BasicServlet {
 
     }
 
-    public void showAllFurn(HttpServletRequest request, HttpServletResponse response){
+    public void showAllFurn(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        List<Furn> allFurn = furnService.getAllFurn();
+        for (Furn furn : allFurn) {
+            System.out.println(furn);
+        }
 
     }
 }
