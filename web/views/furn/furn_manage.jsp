@@ -162,7 +162,6 @@
     </div>
 </div>
 <!-- Cart Area End -->
-
 <!-- Footer Area Start -->
 <div class="footer-area">
     <div class="footer-container">
