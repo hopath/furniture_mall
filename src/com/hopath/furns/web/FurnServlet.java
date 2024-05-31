@@ -51,11 +51,10 @@ public class FurnServlet extends BasicServlet {
 
     }
 
-    public void showAllFurn(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    public void showAllFurn(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         List<Furn> allFurn = furnService.getAllFurn();
-        for (Furn furn : allFurn) {
-            System.out.println(furn);
-        }
-
+        request.setAttribute("furns", allFurn);
+        request.getRequestDispatcher("/views/furn/furn_manage.jsp").
+                forward(request, response);
     }
 }

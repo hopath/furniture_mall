@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
@@ -91,44 +92,65 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td class="product-thumbnail">
-                                    <a href="#"><img class="img-responsive ml-3" src="assets/images/product-image/1.jpg"
-                                                     alt=""/></a>
-                                </td>
-                                <td class="product-name"><a href="#">Product Name</a></td>
-                                <td class="product-name"><a href="#">蚂蚁家居</a></td>
-                                <td class="product-price-cart"><span class="amount">60.00</span></td>
-                                <td class="product-quantity">
-                                    100
-                                </td>
-                                <td class="product-quantity">
-                                    80
-                                </td>
-                                <td class="product-remove">
-                                    <a href="#"><i class="icon-pencil"></i></a>
-                                    <a href="#"><i class="icon-close"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="product-thumbnail">
-                                    <a href="#"><img class="img-responsive ml-3" src="assets/images/product-image/2.jpg"
-                                                     alt=""/></a>
-                                </td>
-                                <td class="product-name"><a href="#">Product NameProduct Name</a></td>
-                                <td class="product-name"><a href="#">蚂蚁家居</a></td>
-                                <td class="product-price-cart"><span class="amount">60.00</span></td>
-                                <td class="product-quantity">
-                                    100
-                                </td>
-                                <td class="product-quantity">
-                                    80
-                                </td>
-                                <td class="product-remove">
-                                    <a href="#"><i class="icon-pencil"></i></a>
-                                    <a href="#"><i class="icon-close"></i></a>
-                                </td>
-                            </tr>
+                            <c:forEach items="${requestScope.furns}" var="furn">
+                                <tr>
+                                    <td class="product-thumbnail">
+                                        <a href="#"><img class="img-responsive ml-3" src="${furn.imgPath}"
+                                                         alt=""/></a>
+                                    </td>
+                                    <td class="product-name"><a href="#">${furn.name}</a></td>
+                                    <td class="product-name"><a href="#">${furn.maker}</a></td>
+                                    <td class="product-price-cart"><span class="amount">${furn.price}</span></td>
+                                    <td class="product-quantity">
+                                            ${furn.sales}
+                                    </td>
+                                    <td class="product-quantity">
+                                            ${furn.stock}
+                                    </td>
+                                    <td class="product-remove">
+                                        <a href="#"><i class="icon-pencil"></i></a>
+                                        <a href="#"><i class="icon-close"></i></a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            <%--<tr>--%>
+                            <%--    <td class="product-thumbnail">--%>
+                            <%--        <a href="#"><img class="img-responsive ml-3" src="assets/images/product-image/1.jpg"--%>
+                            <%--                         alt=""/></a>--%>
+                            <%--    </td>--%>
+                            <%--    <td class="product-name"><a href="#">Product Name</a></td>--%>
+                            <%--    <td class="product-name"><a href="#">蚂蚁家居</a></td>--%>
+                            <%--    <td class="product-price-cart"><span class="amount">60.00</span></td>--%>
+                            <%--    <td class="product-quantity">--%>
+                            <%--        100--%>
+                            <%--    </td>--%>
+                            <%--    <td class="product-quantity">--%>
+                            <%--        80--%>
+                            <%--    </td>--%>
+                            <%--    <td class="product-remove">--%>
+                            <%--        <a href="#"><i class="icon-pencil"></i></a>--%>
+                            <%--        <a href="#"><i class="icon-close"></i></a>--%>
+                            <%--    </td>--%>
+                            <%--</tr>--%>
+                            <%--<tr>--%>
+                            <%--    <td class="product-thumbnail">--%>
+                            <%--        <a href="#"><img class="img-responsive ml-3" src="assets/images/product-image/2.jpg"--%>
+                            <%--                         alt=""/></a>--%>
+                            <%--    </td>--%>
+                            <%--    <td class="product-name"><a href="#">Product NameProduct Name</a></td>--%>
+                            <%--    <td class="product-name"><a href="#">蚂蚁家居</a></td>--%>
+                            <%--    <td class="product-price-cart"><span class="amount">60.00</span></td>--%>
+                            <%--    <td class="product-quantity">--%>
+                            <%--        100--%>
+                            <%--    </td>--%>
+                            <%--    <td class="product-quantity">--%>
+                            <%--        80--%>
+                            <%--    </td>--%>
+                            <%--    <td class="product-remove">--%>
+                            <%--        <a href="#"><i class="icon-pencil"></i></a>--%>
+                            <%--        <a href="#"><i class="icon-close"></i></a>--%>
+                            <%--    </td>--%>
+                            <%--</tr>--%>
                             </tbody>
                         </table>
                     </div>
