@@ -151,6 +151,7 @@
                             <%--        <a href="#"><i class="icon-close"></i></a>--%>
                             <%--    </td>--%>
                             <%--</tr>--%>
+
                             </tbody>
                         </table>
                     </div>
