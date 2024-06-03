@@ -47,7 +47,7 @@ public class AdminServlet extends BasicServlet {
                     request.getRequestDispatcher("views/admin/login.jsp").
                             forward(request, response);
                 }else {
-                    request.getRequestDispatcher("/views/member/login_ok.html").
+                    request.getRequestDispatcher("/views/furn/manage_menu.jsp").
                             forward(request, response);
                 }
             }

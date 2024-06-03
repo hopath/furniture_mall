@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
@@ -32,19 +31,12 @@
                 <!-- Header Action Start -->
                 <div class="col align-self-center">
                     <div class="header-actions">
-                        <div class="header_account_list">
-                            <a href="javascript:void(0)" class="header-action-btn search-btn"><i
-                                    class="icon-magnifier"></i></a>
-                            <div class="dropdown_search">
-                                <form class="action-form" action="#">
-                                    <input class="form-control" placeholder="Enter your search key" type="text">
-                                    <button class="submit" type="submit"><i class="icon-magnifier"></i></button>
-                                </form>
-                            </div>
-                        </div>
                         <!-- Single Wedge Start -->
                         <div class="header-bottom-set dropdown">
-                            <a href="views/furn/manage_menu.jsp">后台管理</a>
+                            <a href="manage/FurnServlet?action=showAllFurn">家居管理</a>
+                        </div>
+                        <div class="header-bottom-set dropdown">
+                            <a href="pages/manager/manager.html">订单管理</a>
                         </div>
                     </div>
                 </div>
@@ -71,92 +63,13 @@
     <div style="width: 100%;height: 50px;background-color: black"></div>
     <!-- Main Menu End -->
 </div>
-
 <!-- Cart Area Start -->
 <div class="cart-main-area pt-100px pb-100px">
     <div class="container">
-        <h3 class="cart-page-title">家居后台管理</h3>
+        <h3 class="cart-page-title">家居后台管理-菜单</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                <form action="#">
-                    <div class="table-content table-responsive cart-table-content">
-                        <table>
-                            <thead>
-                            <tr>
-                                <th>图片</th>
-                                <th>家居名</th>
-                                <th>商家</th>
-                                <th>价格</th>
-                                <th>销量</th>
-                                <th>库存</th>
-                                <th>操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach items="${requestScope.furns}" var="furn">
-                                <tr>
-                                    <td class="product-thumbnail">
-                                        <a href="#"><img class="img-responsive ml-3" src="${furn.imgPath}"
-                                                         alt=""/></a>
-                                    </td>
-                                    <td class="product-name"><a href="#">${furn.name}</a></td>
-                                    <td class="product-name"><a href="#">${furn.maker}</a></td>
-                                    <td class="product-price-cart"><span class="amount">${furn.price}</span></td>
-                                    <td class="product-quantity">
-                                            ${furn.sales}
-                                    </td>
-                                    <td class="product-quantity">
-                                            ${furn.stock}
-                                    </td>
-                                    <td class="product-remove">
-                                        <a href="#"><i class="icon-pencil"></i></a>
-                                        <a href="#"><i class="icon-close"></i></a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                            <%--<tr>--%>
-                            <%--    <td class="product-thumbnail">--%>
-                            <%--        <a href="#"><img class="img-responsive ml-3" src="assets/images/product-image/1.jpg"--%>
-                            <%--                         alt=""/></a>--%>
-                            <%--    </td>--%>
-                            <%--    <td class="product-name"><a href="#">Product Name</a></td>--%>
-                            <%--    <td class="product-name"><a href="#">蚂蚁家居</a></td>--%>
-                            <%--    <td class="product-price-cart"><span class="amount">60.00</span></td>--%>
-                            <%--    <td class="product-quantity">--%>
-                            <%--        100--%>
-                            <%--    </td>--%>
-                            <%--    <td class="product-quantity">--%>
-                            <%--        80--%>
-                            <%--    </td>--%>
-                            <%--    <td class="product-remove">--%>
-                            <%--        <a href="#"><i class="icon-pencil"></i></a>--%>
-                            <%--        <a href="#"><i class="icon-close"></i></a>--%>
-                            <%--    </td>--%>
-                            <%--</tr>--%>
-                            <%--<tr>--%>
-                            <%--    <td class="product-thumbnail">--%>
-                            <%--        <a href="#"><img class="img-responsive ml-3" src="assets/images/product-image/2.jpg"--%>
-                            <%--                         alt=""/></a>--%>
-                            <%--    </td>--%>
-                            <%--    <td class="product-name"><a href="#">Product NameProduct Name</a></td>--%>
-                            <%--    <td class="product-name"><a href="#">蚂蚁家居</a></td>--%>
-                            <%--    <td class="product-price-cart"><span class="amount">60.00</span></td>--%>
-                            <%--    <td class="product-quantity">--%>
-                            <%--        100--%>
-                            <%--    </td>--%>
-                            <%--    <td class="product-quantity">--%>
-                            <%--        80--%>
-                            <%--    </td>--%>
-                            <%--    <td class="product-remove">--%>
-                            <%--        <a href="#"><i class="icon-pencil"></i></a>--%>
-                            <%--        <a href="#"><i class="icon-close"></i></a>--%>
-                            <%--    </td>--%>
-                            <%--</tr>--%>
 
-                            </tbody>
-                        </table>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
