@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -19,15 +20,14 @@ public class FurnServlet extends BasicServlet {
 
     public void addFurn(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         String name = request.getParameter("name");
-        System.out.println(name);
         if(!furnService.isExistName(name)){
             String maker = request.getParameter("maker");
             System.out.println(maker);
-            String price = request.getParameter("price");
-            String sales = request.getParameter("sales");
-            String stock = request.getParameter("stock");
-            //Furn furn = new Furn(name, maker, price, sales, stock);
-            //furnService.addFurn(furn);
+            BigDecimal price = BigDecimal.valueOf(Double.parseDouble(request.getParameter("price")));
+            Integer sales = Integer.parseInt(request.getParameter("sales"));
+            Integer stock = Integer.parseInt(request.getParameter("stock"));
+            Furn furn = new Furn(name, maker, price, sales, stock);
+            furnService.addFurn(furn);
             System.out.println("添加成功...");
         }else{
             System.out.println("家具已存在...");

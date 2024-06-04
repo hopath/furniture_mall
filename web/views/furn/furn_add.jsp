@@ -70,7 +70,8 @@
         <h3 class="cart-page-title">家居后台管理-添加家居</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                <form action="FurnServlet" method="post">
+                <form action="manage/FurnServlet" method="post">
+                    <input type="hidden" name="action" value="addFurn">
                     <div class="table-content table-responsive cart-table-content">
                         <table>
                             <thead>
