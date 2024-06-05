@@ -18,7 +18,7 @@ import java.util.List;
 public class FurnServlet extends BasicServlet {
     FurnServiceImpl furnService = new FurnServiceImpl();
 
-    public void addFurn(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    public void addFurn(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         String name = request.getParameter("name");
         if(!furnService.isExistName(name)){
             String maker = request.getParameter("maker");
@@ -26,12 +26,15 @@ public class FurnServlet extends BasicServlet {
             BigDecimal price = BigDecimal.valueOf(Double.parseDouble(request.getParameter("price")));
             Integer sales = Integer.parseInt(request.getParameter("sales"));
             Integer stock = Integer.parseInt(request.getParameter("stock"));
-            Furn furn = new Furn(name, maker, price, sales, stock);
-            furnService.addFurn(furn);
-            System.out.println("添加成功...");
+            Furn furn = new Furn(name, maker, price, sales, stock, "assets/images/product-image/10.jpg");
+            if(furnService.addFurn(furn)){
+                response.sendRedirect(request.getContextPath() + "/manage/FurnServlet?action=showAllFurn");
+            }else {
+                System.out.println("添加失败...");
+            }
         }else{
             System.out.println("家具已存在...");
-
+            response.sendRedirect(request.getContextPath() + "/manage/FurnServlet?action=showAllFurn");
         }
     }
 
