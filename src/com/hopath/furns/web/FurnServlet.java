@@ -22,20 +22,30 @@ public class FurnServlet extends BasicServlet {
     public void addFurn(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         String name = request.getParameter("name");
         if(!furnService.isExistName(name)){
-            String maker = request.getParameter("maker");
-            System.out.println(maker);
-            BigDecimal price = BigDecimal.valueOf(Double.parseDouble(request.getParameter("price")));
-            Integer sales = Integer.parseInt(request.getParameter("sales"));
-            Integer stock = Integer.parseInt(request.getParameter("stock"));
-            Furn furn = new Furn(name, maker, price, sales, stock, "assets/images/product-image/10.jpg");
+            Furn furn = null;
+            try {
+                String maker = request.getParameter("maker");
+                BigDecimal price = BigDecimal.valueOf(Double.parseDouble(request.getParameter("price")));
+                Integer sales = Integer.parseInt(request.getParameter("sales"));
+                Integer stock = Integer.parseInt(request.getParameter("stock"));
+                furn = new Furn(name, maker, price, sales, stock, "assets/images/product-image/10.jpg");
+            }catch (Exception e){
+                request.setAttribute("meg", "添加数据格式不对...");
+                request.getRequestDispatcher("/views/furn/furn_add.jsp")
+                        .forward(request, response);
+                return;
+            }
             if(furnService.addFurn(furn)){
                 response.sendRedirect(request.getContextPath() + "/manage/FurnServlet?action=showAllFurn");
             }else {
-                System.out.println("添加失败...");
+                request.setAttribute("meg", "添加失败...");
+                request.getRequestDispatcher("/views/furn/furn_add.jsp")
+                        .forward(request, response);
             }
         }else{
-            System.out.println("家具已存在...");
-            response.sendRedirect(request.getContextPath() + "/manage/FurnServlet?action=showAllFurn");
+            request.setAttribute("meg", "家具已存在...");
+            request.getRequestDispatcher("/views/furn/furn_add.jsp")
+                    .forward(request, response);
         }
     }
 

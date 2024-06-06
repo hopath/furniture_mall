@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
     <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
+<script type="text/javascript">
 
+</script>
 <body>
 <!-- Header Area start  -->
 <div class="header section">
@@ -71,6 +73,7 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <form action="manage/FurnServlet" method="post">
+                    ${requestScope.meg}
                     <input type="hidden" name="action" value="addFurn">
                     <div class="table-content table-responsive cart-table-content">
                         <table>
