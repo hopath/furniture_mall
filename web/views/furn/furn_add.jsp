@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="assets/css/style.min.css">
 </head>
 <script type="text/javascript">
-
 </script>
 <body>
 <!-- Header Area start  -->
