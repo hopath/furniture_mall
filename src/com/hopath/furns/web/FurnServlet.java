@@ -19,7 +19,6 @@ import java.util.List;
 public class FurnServlet extends BasicServlet {
     FurnServiceImpl furnService = new FurnServiceImpl();
 
-
     public void addFurn(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         String name = request.getParameter("name");
         if(!furnService.isExistName(name)){
