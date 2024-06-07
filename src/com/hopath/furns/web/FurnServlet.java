@@ -2,6 +2,7 @@ package com.hopath.furns.web;
 
 import com.hopath.furns.entity.Furn;
 import com.hopath.furns.service.impl.FurnServiceImpl;
+import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,13 +23,15 @@ public class FurnServlet extends BasicServlet {
     public void addFurn(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         String name = request.getParameter("name");
         if(!furnService.isExistName(name)){
-            Furn furn = null;
+            //Furn furn = null;
+            Furn furn = new Furn();
             try {
-                String maker = request.getParameter("maker");
-                BigDecimal price = BigDecimal.valueOf(Double.parseDouble(request.getParameter("price")));
-                Integer sales = Integer.parseInt(request.getParameter("sales"));
-                Integer stock = Integer.parseInt(request.getParameter("stock"));
-                furn = new Furn(name, maker, price, sales, stock, "assets/images/product-image/10.jpg");
+//                String maker = request.getParameter("maker");
+//                BigDecimal price = BigDecimal.valueOf(Double.parseDouble(request.getParameter("price")));
+//                Integer sales = Integer.parseInt(request.getParameter("sales"));
+//                Integer stock = Integer.parseInt(request.getParameter("stock"));
+//                furn = new Furn(name, maker, price, sales, stock, "assets/images/product-image/10.jpg");
+                BeanUtils.populate(furn, request.getParameterMap());
             }catch (Exception e){
                 request.setAttribute("meg", "添加数据格式不对...");
                 request.getRequestDispatcher("/views/furn/furn_add.jsp")
