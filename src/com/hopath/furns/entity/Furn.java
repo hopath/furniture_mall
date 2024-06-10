@@ -29,6 +29,7 @@ public class Furn {
         if(!(null == imgPath || "".equals(imgPath))){
             this.imgPath = imgPath;
         }
+
     }
 
     public Furn(String name, String maker, BigDecimal price, Integer sales, Integer stock, String imgPath) {
