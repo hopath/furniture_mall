@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
@@ -70,7 +71,7 @@
         <h3 class="cart-page-title">家居后台管理-修改家居</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                <form action="#" method="post">
+                <form action="manage/FurnServlet?action=updateFurn" method="post">
                     <div class="table-content table-responsive cart-table-content">
                         <table>
                             <thead>
@@ -90,14 +91,14 @@
                                     <a href="#"><img class="img-responsive ml-3" src="assets/images/product-image/default.jpg"
                                                      alt=""/></a>
                                 </td>
-                                <td class="product-name"><input name="name" style="width: 60%" type="text" value="Name"/></td>
-                                <td class="product-name"><input name="maker" style="width: 90%" type="text" value="蚂蚁家居"/></td>
-                                <td class="product-price-cart"><input name="price" style="width: 90%" type="text" value="60.00"/></td>
+                                <td class="product-name"><input name="name" style="width: 60%" type="text" value="${param.name}"/></td>
+                                <td class="product-name"><input name="maker" style="width: 90%" type="text" value="${param.maker}"/></td>
+                                <td class="product-price-cart"><input name="price" style="width: 90%" type="text" value="${param.price}"/></td>
                                 <td class="product-quantity">
-                                    <input name="sales" style="width: 90%" type="text" value="100"/>
+                                    <input name="sales" style="width: 90%" type="text" value="${param.sales}"/>
                                 </td>
                                 <td class="product-quantity">
-                                    <input name="stock" style="width: 90%" type="text" value="80"/>
+                                    <input name="stock" style="width: 90%" type="text" value="${param.stock}"/>
                                 </td>
                                 <td>
 <!--                                    <a href="#"><i class="icon-pencil"></i></a>-->

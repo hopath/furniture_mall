@@ -1,6 +1,7 @@
 package com.hopath.furns.web;
 
 import com.hopath.furns.entity.Furn;
+import com.hopath.furns.service.FurnService;
 import com.hopath.furns.service.impl.FurnServiceImpl;
 import com.hopath.furns.utils.DataUtils;
 
@@ -39,20 +40,27 @@ public class FurnServlet extends BasicServlet {
         }
     }
 
-    public void deleteFurn(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    public void deleteFurn(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
         String name = request.getParameter("name");
         if(furnService.isExistName(name)){
             Furn furn = new Furn();
             furn.setName(name);
             furnService.deleteFurn(furn);
-            System.out.println("删除成功...");
+            //防止刷新浏览器后重复删除
+            response.sendRedirect(request.getContextPath() + "/manage/FurnServlet?action=showAllFurn");
         }else{
-            System.out.println("家具不存在...");
+            request.setAttribute("meg", "家具不存在...");
+            request.getRequestDispatcher("/views/furn/furn_manage.jsp")
+                    .forward(request, response);
         }
     }
 
-    public void updateFurn(HttpServletRequest request, HttpServletResponse response){
-
+    public void updateFurn(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+        Furn furn = DataUtils.copyParamToBean(request.getParameterMap(), new Furn());
+        if(furnService.updateFurn(furn, furn.getName())){
+            //防止刷新浏览器后重复更新
+            response.sendRedirect(request.getContextPath() + "/manage/FurnServlet?action=showAllFurn");
+        }
     }
 
     public void showAllFurn(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {

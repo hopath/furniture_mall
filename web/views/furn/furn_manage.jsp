@@ -96,6 +96,7 @@
                             </tr>
                             </thead>
                             <tbody>
+                            ${requestScope.meg}
                             <c:forEach items="${requestScope.furns}" var="furn">
                                 <tr>
                                     <td class="product-thumbnail">
@@ -112,8 +113,8 @@
                                             ${furn.stock}
                                     </td>
                                     <td class="product-remove">
-                                        <a href="#"><i class="icon-pencil"></i></a>
-                                        <a href="#"><i class="icon-close"></i></a>
+                                        <a href="views/furn/furn_update.jsp?imgPath=${furn.imgPath}&name=${furn.name}&maker=${furn.maker}&price=${furn.price}&sales=${furn.sales}&stock=${furn.stock}"><i class="icon-pencil"></i></a>
+                                        <a href="manage/FurnServlet?action=deleteFurn&name=${furn.name}"><i class="icon-close"></i></a>
                                     </td>
                                 </tr>
                             </c:forEach>
